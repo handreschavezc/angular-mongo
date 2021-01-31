@@ -1,0 +1,41 @@
+<section class="container">
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="guardar()" class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">Nombre</label>
+                <div>
+                    <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre" [class.is-invalid]="nombreNoValido" />
+                    <small *ngIf="nombreNoValido" class="form-text text-danger">agregue 5 letras</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">proveedor</label>
+                <div>
+                    <input class="form-control" type="text" placeholder="Apellido" formControlName="proveedor" [class.is-invalid]="proveedorNoValido" />
+                    <small *ngIf="proveedorNoValido" class="form-text text-danger">proveedor invalido</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">imagen</label>
+                <div class="custom-file">
+                    <input class="custom-file-input" type="file" (change)="onFileChange($event)" placeholder="Imagen" [class.is-invalid]="fileNoValido" />
+                    <label class="custom-file-label" for="customFile">Buscar imagen</label>
+                    <small *ngIf="fileNoValido" class="form-text text-danger">imagen inválida</small>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <button type="submit" class="btn btn-outline-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
